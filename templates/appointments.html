@@ -1,0 +1,45 @@
+
+{% extends "base.html" %}
+
+{% block title %}Appointments - Maternal Health Risk Assessment{% endblock %}
+
+{% block content %}
+<h1 class="text-center mb-4">Your Appointments</h1>
+
+{% if appointments %}
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Appointment ID</th>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Risk Level</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for appointment in appointments %}
+                    <tr>
+                        <td>{{ appointment.id }}</td>
+                        <td>{{ appointment.name }}</td>
+                        <td>{{ appointment.date }}</td>
+                        <td>{{ appointment.time }}</td>
+                        <td>{{ appointment.risk }}</td>
+                        <td>
+                            <a href="{{ url_for('appointment_detail', appointment_id=appointment.id) }}" class="btn btn-sm btn-primary">View Details</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% else %}
+    <p class="text-center">You have no appointments scheduled.</p>
+{% endif %}
+
+<div class="text-center mt-4">
+    <a href="{{ url_for('appointment') }}" class="btn btn-primary">Book New Appointment</a>
+</div>
+{% endblock %}

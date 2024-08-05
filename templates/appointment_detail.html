@@ -1,0 +1,22 @@
+
+{% extends "base.html" %}
+
+{% block title %}Appointment Details - Maternal Health Risk Assessment{% endblock %}
+
+{% block content %}
+<h1 class="text-center mb-4">Appointment Details</h1>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Appointment ID: {{ appointment.id }}</h5>
+        <p class="card-text"><strong>Name:</strong> {{ appointment.name }}</p>
+        <p class="card-text"><strong>Date:</strong> {{ appointment.date }}</p>
+        <p class="card-text"><strong>Time:</strong> {{ appointment.time }}</p>
+        <p class="card-text"><strong>Risk Level:</strong> {{ appointment.risk }}</p>
+    </div>
+</div>
+
+<div class="text-center mt-4">
+    <a href="{{ url_for('appointments') }}" class="btn btn-secondary">Back to Appointments</a>
+</div>
+{% endblock %}

@@ -1,0 +1,104 @@
+
+{% extends "base.html" %}
+
+{% block title %}Home - Maternal Health Risk Assessment{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <h1 class="text-center mb-4">Welcome to Maternal Health Risk Assessment</h1>
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">About Our Service</h5>
+                <p class="card-text">Our Maternal Health Risk Assessment tool helps expectant mothers understand their health risks and take proactive steps towards a healthy pregnancy. We use advanced machine learning algorithms to analyze your health data and provide personalized risk assessments.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Risk Assessment</h5>
+                        <p class="card-text">Take our quick assessment to understand your maternal health risks.</p>
+                        <a href="#assessment-form" class="btn btn-primary">Start Assessment</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Book Appointment</h5>
+                        <p class="card-text">Schedule an appointment with our healthcare professionals.</p>
+                        <a href="{{ url_for('appointment') }}" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="assessment-form" class="row justify-content-center mt-5">
+    <div class="col-md-8">
+        <h2 class="text-center mb-4">Maternal Health Risk Prediction</h2>
+        <form action="{{ url_for('index') }}" method="post" class="needs-validation" novalidate>
+            <div class="mb-3">
+                <label for="name" class="form-label">Name:</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+                <div class="invalid-feedback">Please enter your name.</div>
+            </div>
+            <div class="mb-3">
+                <label for="age" class="form-label">Age:</label>
+                <input type="number" class="form-control" id="age" name="age" required>
+                <div class="invalid-feedback">Please enter your age.</div>
+            </div>
+            <div class="mb-3">
+                <label for="systolic_bp" class="form-label">Systolic Blood Pressure:</label>
+                <input type="number" class="form-control" id="systolic_bp" name="systolic_bp" required>
+                <div class="invalid-feedback">Please enter your systolic blood pressure.</div>
+            </div>
+            <div class="mb-3">
+                <label for="diastolic_bp" class="form-label">Diastolic Blood Pressure:</label>
+                <input type="number" class="form-control" id="diastolic_bp" name="diastolic_bp" required>
+                <div class="invalid-feedback">Please enter your diastolic blood pressure.</div>
+            </div>
+            <div class="mb-3">
+                <label for="bs" class="form-label">Blood Sugar:</label>
+                <input type="number" class="form-control" id="bs" name="bs" step="0.1" required>
+                <div class="invalid-feedback">Please enter your blood sugar level.</div>
+            </div>
+            <div class="mb-3">
+                <label for="body_temp" class="form-label">Body Temperature:</label>
+                <input type="number" class="form-control" id="body_temp" name="body_temp" step="0.1" required>
+                <div class="invalid-feedback">Please enter your body temperature.</div>
+            </div>
+            <div class="mb-3">
+                <label for="heart_rate" class="form-label">Heart Rate:</label>
+                <input type="number" class="form-control" id="heart_rate" name="heart_rate" required>
+                <div class="invalid-feedback">Please enter your heart rate.</div>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">
+                <i class="fas fa-calculator"></i> Predict Risk
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Form validation
+    (function () {
+        'use strict'
+        var forms = document.querySelectorAll('.needs-validation')
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+                    form.classList.add('was-validated')
+                }, false)
+            })
+    })()
+</script>
+{% endblock %}

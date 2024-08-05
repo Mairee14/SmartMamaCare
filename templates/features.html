@@ -1,0 +1,64 @@
+```html
+{% extends "base.html" %}
+
+{% block title %}Features - Maternal Health Risk Assessment{% endblock %}
+
+{% block content %}
+<h1 class="text-center mb-5">Features of Our Maternal Health Risk Assessment</h1>
+
+<div class="row">
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title"><i class="fas fa-chart-line text-primary"></i> Risk Assessment</h5>
+                <p class="card-text">Our advanced algorithm analyzes your health data to provide a personalized risk assessment for maternal health complications.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title"><i class="fas fa-calendar-check text-success"></i> Appointment Booking</h5>
+                <p class="card-text">Easily schedule appointments with healthcare professionals based on your risk assessment results.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title"><i class="fas fa-history text-info"></i> Appointment History</h5>
+                <p class="card-text">Keep track of all your past and upcoming appointments in one convenient location.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title"><i class="fas fa-bell text-warning"></i> Notifications</h5>
+                <p class="card-text">Receive timely notifications about your appointments and important health updates.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title"><i class="fas fa-user-md text-danger"></i> Expert Advice</h5>
+                <p class="card-text">Get personalized recommendations based on your risk assessment from our team of healthcare professionals.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title"><i class="fas fa-mobile-alt text-secondary"></i> Mobile Friendly</h5>
+                <p class="card-text">Access our services on-the-go with our mobile-responsive design, ensuring you can manage your health anytime, anywhere.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="text-center mt-5">
+    <a href="{{ url_for('index') }}" class="btn btn-primary btn-lg">Get Started Now</a>
+</div>
+{% endblock %}
+```
